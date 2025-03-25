@@ -70,6 +70,13 @@ Searched for any indication that user "sand" actually opened the Firefox browser
 **Query used to locate events:**
 
 ```kql
+
+DeviceProcessEvents
+| where DeviceName == "newtra"
+| where InitiatingProcessCommandLine contains "launched"
+| where FileName contains "firefox"
+| project Timestamp, DeviceName, ActionType, FileName, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessFolderPath, InitiatingProcessCommandLine
+
 DeviceProcessEvents
 | where DeviceName == "newtra" 
 | where AccountName == "sand"                                                                                
@@ -85,6 +92,9 @@ DeviceProcessEvents
 | project DeviceName, AccountName, FileName, ProcessCommandLine
 
 ```
+
+![image](https://github.com/user-attachments/assets/d467e8a1-8af3-4163-a6c7-b3dc52c6a8e5)
+
 ![image](https://github.com/user-attachments/assets/9517c3d6-cb51-4617-9b72-ab22e7415414)
 
 ![image](https://github.com/user-attachments/assets/1999823a-1e12-4f89-aa54-72d8633496d8)
@@ -131,7 +141,7 @@ DeviceNetworkEvents
 
 ### 3. Process Execution - Firefox Browser Launch
 
-- **Timestamp:** `2025-03-24T21:32:37.7259964Z`
+- **Timestamp:** `2025-03-24T21:30:01.6600135Z`
 - **Event:** User "sand" opened the Firefox browser. Subsequent processes associated with the Firefox browser, such as `firefox.exe` was also created, indicating that the browser launched successfully.
 - **Action:** Process creation of Firefox browser-related executables detected.
 - **File Path:** `c:\users\sand\appdata\local\temp\7zs443a6f18\setup.exe`
