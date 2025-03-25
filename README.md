@@ -17,9 +17,9 @@ Consequently, management has decided to check the network logs for any unexpecti
 
 ### High-Level Firefox-Related IoC Discovery Plan
 
-- **Check `DeviceFileEvents`** for any `tor(.exe)` or `firefox(.exe)` file events.
-- **Check `DeviceProcessEvents`** for any signs of installation or usage.
-- **Check `DeviceNetworkEvents`** for any signs of outgoing connections over known TOR ports.
+- **Check `DeviceFileEvents`** for any `firefox(.exe)` file events.
+- **Check `DeviceProcessEvents`** for any signs of installation or abnormal activity.
+- **Check `DeviceNetworkEvents`** for any signs of outgoing connections over known ports.
 
 ---
 
@@ -27,7 +27,7 @@ Consequently, management has decided to check the network logs for any unexpecti
 
 ### 1. Searched the `DeviceFileEvents` Table
 
-Searched for any file that had the string "tor" in it and discovered what looks like the user "employee" downloaded a TOR installer, did something that resulted in many TOR-related files being copied to the desktop, and the creation of a file called `tor-shopping-list.txt` on the desktop at `2024-11-08T22:27:19.7259964Z`. These events began at `2025-03-24T21:28:51.0902097Z`.
+Searched for any file that had the string "firefox" in it and discovered what looks like the user "sand" downloaded a Firefox installer on the desktop.  These events began at `2025-03-24T21:28:51.0902097Z`.
 
 **Query used to locate events:**
 
