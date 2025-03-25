@@ -1,4 +1,5 @@
- ![image](https://github.com/user-attachments/assets/0788efa8-26a9-419a-b331-f8ea702be651)
+ ![image](https://github.com/user-attachments/assets/a4ad0cc4-1c10-46ab-9531-762eb2db0afb)
+
 
 # Threat Hunt Report: Unauthorized TOR Usage
 - [Scenario Creation](https://github.com/joshmadakor0/threat-hunting-scenario-tor/blob/main/threat-hunting-scenario-tor-event-creation.md)
