@@ -1,1 +1,1 @@
-# threating-hunting-scenario-firefox-powershell
+# threat-hunting-scenario-firefox-and-powershell
