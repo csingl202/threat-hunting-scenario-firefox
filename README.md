@@ -68,13 +68,24 @@ Searched for any indication that user "employee" actually opened the TOR browser
 **Query used to locate events:**
 
 ```kql
-DeviceProcessEvents  
-| where DeviceName == "threat-hunt-lab"  
-| where FileName has_any ("tor.exe", "firefox.exe", "tor-browser.exe")  
-| project Timestamp, DeviceName, AccountName, ActionType, FileName, FolderPath, SHA256, ProcessCommandLine  
-| order by Timestamp desc
+DeviceProcessEvents
+| where DeviceName == "newtra" 
+| where AccountName == "sand"                                                                                
+| where FileName == "powershell.exe"
+| where ProcessCommandLine contains "ps1"                                                              
+| project DeviceName, AccountName, FileName, ProcessCommandLine
+
+DeviceProcessEvents
+| where DeviceName == "newtra" 
+| where AccountName == "sand"                                                                                
+| where FileName == "powershell.exe"
+| where ProcessCommandLine contains "zip"                                                              
+| project DeviceName, AccountName, FileName, ProcessCommandLine
+
 ```
 ![image](https://github.com/user-attachments/assets/9517c3d6-cb51-4617-9b72-ab22e7415414)
+
+![image](https://github.com/user-attachments/assets/1999823a-1e12-4f89-aa54-72d8633496d8)
 
 ---
 
