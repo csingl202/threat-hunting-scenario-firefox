@@ -63,7 +63,7 @@ DeviceProcessEvents
 
 ---
 
-### 3. Searched the `DeviceProcessEvents` Table for TOR Browser Execution
+### 3. Searched the `DeviceProcessEvents` Table for Firefox Browser Execution
 
 Searched for any indication that user "sand" actually opened the Firefox browser. There was evidence that they did open it at `2025-03-24T21:30:01.6600135Z`. I also searched for any indication of unusual PowerShell activity, and  quickly discovered the following: (1) an attempt to download a file named '...exploit-kit.zip', and (2) the downloading and installation of a file named '...eicar.ps1'.
 
@@ -91,7 +91,7 @@ DeviceProcessEvents
 
 ---
 
-### 4. Searched the `DeviceNetworkEvents` Table for TOR Network Connections
+### 4. Searched the `DeviceNetworkEvents` Table for Firefox Browser Activity (malicious websites)
 
 Searched for any indication the Firefox browser was used to establish a connection using any of the known ports. At `2025-03-24T22:30:40.5748365Z`, an employee on the "newtra" device successfully established a connection to the remote IP address `91.195.240.94` on port `80`. The connection was initiated by the process `firefox.exe`, located in the folder `C:\Program Files\Mozilla Firefox`. There were a couple of other connections to sites over port `443` and port '80'.
 
@@ -136,7 +136,7 @@ DeviceNetworkEvents
 - **Action:** Process creation of Firefox browser-related executables detected.
 - **File Path:** `c:\users\sand\appdata\local\temp\7zs443a6f18\setup.exe`
 
-### 4. Network Connection - Firefox Browser Activity (malicious website)
+### 4. Network Connection - Firefox Browser Activity (malicious websites)
 
 - **Timestamp:** `2025-03-24T22:30:40.5748365Z`
 - **Event:** A network connection to IP `91.195.240.94` on port `80` by user "sand" was established using `firefox.exe`, confirming Firefox browser network activity.
@@ -144,7 +144,7 @@ DeviceNetworkEvents
 - **Process:** `firefox.exe`
 - **File Path:** `c:\program files\mozilla firefox\firefox.exe`
 
-### 5. Additional Network Connections - Firefox Browser Activity
+### 5. Additional Network Connections - Firefox Browser Activity (malicious websites)
 
 - **Timestamps:**
   - `2025-03-24T22:30:53.1543691Z` - Connected to `91.195.240.94 on port `443`.
