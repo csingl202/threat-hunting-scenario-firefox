@@ -36,7 +36,7 @@
 
 ## Related Queries:
 ```kql
-// Installer name == tor-browser-windows-x86_64-portable-(version).exe
+// Installer name == firefox-(version).exe
 // Detect the installer being downloaded
 DeviceFileEvents
 | where FileName startswith "tor"
