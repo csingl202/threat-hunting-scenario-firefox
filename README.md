@@ -7,7 +7,8 @@
 - Windows 10 Virtual Machines (Microsoft Azure)
 - EDR Platform: Microsoft Defender for Endpoint
 - Kusto Query Language (KQL)
-- Tor Browser
+- Firefox Browser
+- PowerShell
 
 ##  Scenario
 
