@@ -45,7 +45,7 @@ DeviceFileEvents
 
 ### 2. Searched the `DeviceProcessEvents` Table
 
-Searched for any `ProcessCommandLine` that contained the string "launched". Based on the logs returned, at `2025-03-24T21:30:01.6600135Z`, an employee on the "newtra" device ran a Firefox file named 'setup.exe` from their Downloads folder.
+Searched for any `ProcessCommandLine` that contained the string "launched". Based on the logs returned, at `2025-03-24T21:30:01.6600135Z`, an employee on the "newtra" device ran a file named 'firefox.exe` from their Downloads folder.
 
 **Query used to locate event:**
 
