@@ -39,42 +39,61 @@
 // Installer name == firefox-(version).exe
 // Detect the installer being downloaded
 DeviceFileEvents
-| where FileName startswith "tor"
+| where FileName startswith "firefox"
+| where DeviceName == "newtra"
+| project Timestamp, DeviceName, ActionType, FileName, InitiatingProcessAccountName, InitiatingProcessFileName
 
-// TOR Browser being silently installed
-// Take note of two spaces before the /S (I don't know why)
+// Firefox Browser being installed
 DeviceProcessEvents
-| where ProcessCommandLine contains "tor-browser-windows-x86_64-portable-14.0.1.exe  /S"
-| project Timestamp, DeviceName, ActionType, FileName, ProcessCommandLine
+| where DeviceName == "newtra"
+| where InitiatingProcessCommandLine contains "launched"
+| where FileName contains "firefox"
+| project Timestamp, DeviceName, ActionType, FileName, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessFolderPath, InitiatingProcessCommandLine
 
-// TOR Browser or service was successfully installed and is present on the disk
-DeviceFileEvents
-| where FileName has_any ("tor.exe", "firefox.exe")
-| project  Timestamp, DeviceName, RequestAccountName, ActionType, InitiatingProcessCommandLine
-
-// TOR Browser or service was launched
+// PowerShell file was successfully installed while another attempt to download a file was unsuccessful
 DeviceProcessEvents
-| where ProcessCommandLine has_any("tor.exe","firefox.exe")
-| project  Timestamp, DeviceName, AccountName, ActionType, ProcessCommandLine
+| where DeviceName == "newtra" 
+| where AccountName == "sand"                                                                                
+| where FileName == "powershell.exe"
+| where ProcessCommandLine contains "ps1"                                                              
+| project DeviceName, AccountName, FileName, ProcessCommandLine
 
-// TOR Browser or service is being used and is actively creating network connections
-DeviceNetworkEvents
-| where InitiatingProcessFileName in~ ("tor.exe", "firefox.exe")
-| where RemotePort in (9001, 9030, 9040, 9050, 9051, 9150)
-| project Timestamp, DeviceName, InitiatingProcessAccountName, InitiatingProcessFileName, RemoteIP, RemotePort, RemoteUrl
+DeviceProcessEvents
+| where DeviceName == "newtra" 
+| where AccountName == "sand"                                                                                
+| where FileName == "powershell.exe"
+| where ProcessCommandLine contains "zip"                                                              
+| project DeviceName, AccountName, FileName, ProcessCommandLine
+
+// Firefox Browser being launched
+DeviceProcessEvents
+| where DeviceName == "newtra"
+| where InitiatingProcessCommandLine contains "launched"
+| where FileName contains "firefox"
+| project Timestamp, DeviceName, ActionType, FileName, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessFolderPath, InitiatingProcessCommandLine
+
+// Firefox Browser being used and actively creating network connections
+DeviceNetworkEvents  
+| where DeviceName == "newtra"  
+| where InitiatingProcessAccountName != "system" 
+|where InitiatingProcessFileName in ("firefox.exe", "powershell.exe")
+| where RemotePort in ("80", "443")
+| project Timestamp, DeviceName, InitiatingProcessAccountName, ActionType, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessFileName, InitiatingProcessFolderPath  
 | order by Timestamp desc
 
-// User shopping list was created and, changed, or deleted
+
+// Eicar file was created
 DeviceFileEvents
-| where FileName contains "shopping-list.txt"
+| where FileName contains "eicar.ps1"
+| where DeviceName == "newtra"
 ```
 
 ---
 
 ## Created By:
-- **Author Name**: Josh Madakor
-- **Author Contact**: https://www.linkedin.com/in/joshmadakor/
-- **Date**: November 9, 2024
+- **Author Name**: Clyde Singleton
+- **Author Contact**:  https://github.com/csingl202
+- **Date**: March 25, 2025
 
 ## Validated By:
 - **Reviewer Name**: 
@@ -91,4 +110,4 @@ DeviceFileEvents
 ## Revision History:
 | **Version** | **Changes**                   | **Date**         | **Modified By**   |
 |-------------|-------------------------------|------------------|-------------------|
-| 1.0         | Initial draft                  | `November 9, 2024`  | `Josh Madakor`   
+| 1.0         | Initial draft                  | `March 25, 2025`| `Clyde Singleton`   
