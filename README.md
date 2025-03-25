@@ -1,7 +1,7 @@
  ![image](https://github.com/user-attachments/assets/a4ad0cc4-1c10-46ab-9531-762eb2db0afb)
 
 
-# Threat Hunt Report: Unauthorized TOR Usage
+# Threat Hunt Report: Suspicious Firefox Behavior
 - [Scenario Creation](https://github.com/joshmadakor0/threat-hunting-scenario-tor/blob/main/threat-hunting-scenario-tor-event-creation.md)
 
 ## Platforms and Languages Leveraged
@@ -12,7 +12,8 @@
 
 ##  Scenario
 
-Management suspects that some employees may be using TOR browsers to bypass network security controls because recent network logs show unusual encrypted traffic patterns and connections to known TOR entry nodes. Additionally, there have been anonymous reports of employees discussing ways to access restricted sites during work hours. The goal is to detect any TOR usage and analyze related security incidents to mitigate potential risks. If any use of TOR is found, notify management.
+The latest cybersecurity news report has indicated that there are new vulnerabilities in FireFox which could be exploited by attackers.  Specifically, an unpatched vulnerability (CVE-2025-12345) has been found in Firefox that allows attackers to bypass certain security mechanisms and execute arbitrary code.  Given that this vulnerability is actively being exploited in the wild, it is crucial to check for any signs of malicious activity using the Firefox browser on corporate endpoints.  Additionally, when bad actors gain access to a system, they will attempt to download malicious payloads or tools directly from the internet to expand their control or establish persistence.  This is often achieved using legitimate system utilities like PowerShell to blend in with normal activity.
+Consequently, management has decided to check the network logs for any unexpecting Firefox traffic patterns or node connections to any unauthorized endpoints.  The goal is to detect any abnormal Firefox and PowerShell usage, and analyze related security incidents to mitigate potential risks. If any questionable behavior is discovered, management will be informed.
 
 ### High-Level TOR-Related IoC Discovery Plan
 
