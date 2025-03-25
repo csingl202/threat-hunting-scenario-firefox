@@ -65,7 +65,7 @@ DeviceProcessEvents
 
 ### 3. Searched the `DeviceProcessEvents` Table for Firefox Browser Execution
 
-Searched for any indication that user "sand" actually opened the Firefox browser. There was evidence that they did open it at `2025-03-24T21:30:01.6600135Z`. I also searched for any indication of unusual PowerShell activity, and  quickly discovered the following: (1) an attempt to download a file named '...exploit-kit.zip', and (2) the downloading and installation of a file named '...eicar.ps1'.
+Searched for any indication that user "sand" actually opened the Firefox browser. There was evidence that they did open it at `2025-03-24T21:30:01.6600135Z`. I also searched for any indication of unusual PowerShell activity, and  quickly discovered the following: (1) an attempt to download a file named 'exploit-kit.zip', and (2) the downloading and installation of a file named 'eicar.ps1'.
 
 **Query used to locate events:**
 
@@ -163,7 +163,7 @@ DeviceNetworkEvents
 
 ## Summary
 
-The user "employee" on the "threat-hunt-lab" device initiated and completed the installation of the TOR browser. They proceeded to launch the browser, establish connections within the TOR network, and created various files related to TOR on their desktop, including a file named `tor-shopping-list.txt`. This sequence of activities indicates that the user actively installed, configured, and used the TOR browser, likely for anonymous browsing purposes, with possible documentation in the form of the "shopping list" file.
+The user "sand" on the "newtra" device initiated and completed the installation of the Firefox browser. The employee then proceeded to launch the browser, establish connections using Firefox, and create a file named `eicar.ps1` using PowerShell. Additionally, an attempt to download a file named 'exploit-kit.zip' using PowerShell was also made; however, the attempt was unsuccessful.  These activities indicate that the user actively installed Firefox; thereafter, the user began using Firefox and PowerShell to potentially install malicious software.
 
 ---
 
