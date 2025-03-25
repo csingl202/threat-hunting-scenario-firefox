@@ -169,6 +169,6 @@ The user "sand" on the "newtra" device initiated and completed the installation 
 
 ## Response Taken
 
-TOR usage was confirmed on the endpoint `threat-hunt-lab` by the user `employee`. The device was isolated, and the user's direct manager was notified.
+Firefox and PowerShell usage was confirmed on the endpoint "newtra" by the user "sand". The device was isolated using Microsoft Defender for Endpoint, and the user's direct manager was notified.
 
 ---
